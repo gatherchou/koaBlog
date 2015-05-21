@@ -1,6 +1,6 @@
 {
-  "name": "koa",
-  "version": "1.0.0",
+  "name": "KoaBlog",
+  "version": "0.0.0",
   "description": "",
   "main": "app.js",
   "dependencies": {
