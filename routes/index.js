@@ -1,3 +1,4 @@
+var User = require('../models/user.js');
 module.exports = function (app, koabody){
 	app.get('/', koabody, function *(){
 		yield this.render('index', {
@@ -28,8 +29,19 @@ module.exports = function (app, koabody){
 		
 	})
 
-	app.post('/login', function *(){
-		
+	app.post('/login', koabody, function *(){
+		var name = this.request.body.username;
+		// console.log(name);
+		var user = User.get(name, function (err, user){
+			if (!user){
+				console.log('用户不存在!');
+				// return this.redirect('/login');
+			}else{
+				console.log('登录!');
+			}
+			
+		})
+
 	})
 
 	app.post('/post', function *(){

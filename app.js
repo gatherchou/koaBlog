@@ -7,8 +7,9 @@ var session = require('koa-session');
 var staticfile = require('koa-static');
 
 var routes = require('./routes/index.js');
+var config = require('./config.json');
+app.keys = config.keys;
 
-app.keys = ['some secret hurr'];
 ejs(app, {
 	root : path.join(__dirname, 'views'),
 	layout : false
